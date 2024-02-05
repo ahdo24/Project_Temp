@@ -1,0 +1,30 @@
+﻿:root {
+    --pri: #FFC40A;
+    --sec: #679bf1;
+    --acc: #2F2E2C;
+    --pri-lg: color-mix(in srgb, var(--pri), #fff 5%);
+    --pri-dr: color-mix(in srgb, var(--pri), #000 5%);
+    --sec-lg: color-mix(in srgb, var(--sec), #fff 5%);
+    --sec-dr: color-mix(in srgb, var(--sec), #000 5%);
+    --acc-lg: color-mix(in srgb, var(--acc), #fff 5%);
+    --acc-dr: color-mix(in srgb, var(--acc), #000 5%);
+    --text-clr: #101010;
+    --text-clr2: color-mix(in srgb, var(--text-clr), #fff 30%);
+    --bg-0dp: #dddddd;
+    --bg-1dp: #f9f9f9;
+    font-size: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 500ms ease-out;
+}
+
+[data-theme="dr"] {
+    --text-clr: #f5f5f5;
+    --bg-0dp: #000000;
+    --bg-1dp: #151515;
+    --text-clr2: color-mix(in srgb, var(--text-clr), #000 30%);
+}

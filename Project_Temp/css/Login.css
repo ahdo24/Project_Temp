@@ -1,0 +1,158 @@
+﻿body {
+    background: var(--bg-0dp);
+    font-family: system-ui;
+    --padding: clamp(10px,1rem, 1.5rem);
+    overflow-x: hidden;
+}
+
+
+.main_wrapper {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--bg-0dp);
+    color: var(--text-clr);
+    position: relative;
+}
+.main_wrapper::after, .main_wrapper::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    background: var(--pri);
+}
+.main_wrapper:not([data-theme="dr"])::after, 
+.main_wrapper:not([data-theme="dr"])::before {
+    background: color-mix(in srgb, var(--pri), #000 15%);
+}
+.main_wrapper::after {
+    top: 30%;
+}
+.main_wrapper::before {
+    top: 35%;
+}
+.main_wrapper .modal {
+    background: var(--bg-1dp);
+    height: 70dvh;
+    min-width: 430px;
+    max-width: 80dvw;
+    min-height: 510px;
+    max-height: 65dvh;
+    padding: var(--padding);
+    border-radius: 0.25rem;
+    display: flex;
+    z-index: 1;
+    position: relative;
+}
+.main_wrapper .modal:has(:hover, input:is(:focus-within)) {
+    box-shadow: 0 0px 500px -40px var(--bg-1dp);
+}
+.main_wrapper .modal > div {
+    width: 30rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main_wrapper .modal .logo_con:has(img[src="#"]) {
+    display: none;
+    background: red;
+}
+.modal div.inputs_con {
+    flex-direction: column;
+    padding: var(--padding);
+    gap: 8px;
+}
+.modal div.inputs_con input[type="button"] {
+    width: 90px;
+    height: 30px;
+    padding: 5px;
+    background: var(--pri);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    color: var(--text-clr);
+    box-shadow: none;
+    transition: 500ms ease-in-out, 
+        box-shadow 200ms ease-out;
+}
+.modal div.inputs_con input[type="button"]:is(:hover, :focus-within) {
+    transform: translateY(-5px);
+    color: var(--bg-0dp);
+    box-shadow: 0 0px 100px -15px var(--pri);
+    cursor: pointer;
+    transition: 100ms ease-in-ouT;
+}
+.modal div.inputs_con span:has(:not([type="button"])) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    border-bottom: 1px solid color-mix(in srgb, var(--bg-1dp), #000 10%);
+    position: relative;
+}
+[data-theme="dr"] .modal div.inputs_con span:has(:not([type="button"])) {
+    border-bottom: 1px solid color-mix(in srgb, var(--bg-1dp), #fff 10%);
+}
+.modal div.inputs_con input:not([type="button"]) {
+    border: none;
+    outline: none;
+    padding: 10px 5px 5px 5px;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 100%;
+    font-size: 1.2rem;
+    color: var(--text-clr);
+    caret-color: var(--pri);
+    border-radius: 3px 3px 0 0;
+    background: var(--bg-0dp);
+}
+div.inputs_con span:has(input:not(:placeholder-shown)) input:not([type="button"]) {
+    background: transparent !important;
+}
+div.inputs_con span:has(:not([type="button"]))::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--pri);
+}
+div.inputs_con span:has(input:is(:not(:placeholder-shown), :focus-within))::after {
+    width: 100%;
+    transition: 350ms ease-in-out;
+}
+
+.modal div.inputs_con :is(.title, .company) {
+    position: absolute;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--pri);
+    font-weight: bold;
+    cursor: default;
+}
+.modal div.inputs_con .title {
+    bottom: 15px;
+    left: 15px;
+}
+.modal div.inputs_con .company {
+    top: 15px;
+    right: 15px;
+    padding-bottom: 30px;
+    width: calc(100% - 30px);
+    text-align: end;
+    cursor: move;
+
+}
+.modal div.inputs_con :is(.title, .company) span {
+    color: var(--text-clr2);
+}
+
+

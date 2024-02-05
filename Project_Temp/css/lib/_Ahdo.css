@@ -1,0 +1,8 @@
+﻿/* Created by Ahdo */
+
+/* Validations */
+[data-validation="required"].invalid_input {
+    border: 1px solid red !important;
+    box-shadow: 0 0px 10px -5px red;
+    z-index: 2;
+}
