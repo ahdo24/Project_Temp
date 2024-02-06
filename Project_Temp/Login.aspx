@@ -32,7 +32,7 @@
                                   data-validation="required" 
                                   data-input="Username"
                                   placeholder="USERNAME" 
-                                  autofocus /> 
+                                  autofocus="autofocus" /> 
                     </span>
                     <span> <input type="password" 
                                   data-validation="required" 

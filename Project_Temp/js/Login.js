@@ -25,13 +25,20 @@ const login = () => {
         inputs: required_inputs
     })
 
-
     if (is_valid) {
         let user = document.querySelectorAll('[data-input="Username"]')[0].value,
-            pass = document.querySelectorAll('[data-input="Password"]')[0].value
-
-
-        console.log(user, pass)
+            pass = document.querySelectorAll('[data-input="Password"]')[0].value,
+            account = {
+                user: user, pass:pass
+            }
+        
+        ajax_con({
+            url: 'Login.aspx/getData',
+            data: JSON.stringify({obj:account})
+        })
+        .done(e => {
+            console.log(e)
+        })
     }
 
         

@@ -40,10 +40,9 @@ const validation = config => {
         inputs = Array.from(config?.inputs) ?? [],
         result = true;
 
-    if (type == 'required') {
+    if (type == 'required') 
         result = is_required(inputs)
-    }
-
+    
 
     return result;
 }
@@ -55,7 +54,6 @@ const is_empty = input => {
 const is_required = inputs => {
     let invalid_fields = inputs.filter(input => is_empty(input)),
         status = invalid_fields.length > 0
-
 
     if (status) {
         invalid_fields.map(i => {
@@ -82,11 +80,8 @@ const is_required = inputs => {
     return !status
 }
 
-
-
-
 // Jquery UI - Draggable
-// requirements: jquery-ui.min.js 
+// requirements: jquery & jquery-ui.min.js 
 const is_draggable = config => {
     $(config.drag).draggable({
         start: function () {
@@ -102,3 +97,32 @@ const is_draggable = config => {
 
     });
 }
+
+
+// Global ajax connection
+const ajax_con = config => {
+    return $.ajax({
+            url: config.url,
+            method: 'POST',
+            data: config?.data ?? '',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+        })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
