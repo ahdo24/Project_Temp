@@ -38,7 +38,6 @@ const sweet_alert = config => {
 const validation = config => {
     let type = config?.type ?? 'required',
         inputs = Array.from(config?.inputs) ?? [],
-        counter = 0,
         result = true;
 
     if (type == 'required') {
